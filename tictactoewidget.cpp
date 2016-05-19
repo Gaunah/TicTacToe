@@ -10,6 +10,13 @@ TicTacToeWidget::~TicTacToeWidget()
 {
 }
 
+void TicTacToeWidget::initNewGame()
+{
+    for (int i = 0; i < 9; ++i) {
+        board.at(i)->setText(" ");
+    }
+}
+
 void TicTacToeWidget::setupBoard()
 {
     QGridLayout *gridLayout = new QGridLayout;
