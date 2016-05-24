@@ -15,6 +15,9 @@ enum Player {
 class TicTacToeWidget : public QWidget
 {
     Q_OBJECT
+    Q_ENUMS(Player)
+    Q_PROPERTY(Player currentPlayer READ currentPlayer WRITE setCurrentPlayer
+               NOTIFY currentPlayerChanged)
 
 signals:
     void currentPlayerChanged(Player);
@@ -42,7 +45,7 @@ public:
 
     void setCurrentPlayer(const Player &currentPlayer)
     {
-        if (m_currentPlayer == currentPlayer) return;
+        if (m_currentPlayer == currentPlayer) return; //not changed
         m_currentPlayer = currentPlayer;
         emit currentPlayerChanged(currentPlayer);
     }
