@@ -13,6 +13,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        tictactoewidget.cpp
+        tictactoewidget.cpp \
+    configurationdialog.cpp
 
-HEADERS  += tictactoewidget.h
+HEADERS  += tictactoewidget.h \
+    configurationdialog.h
+
+FORMS += \
+    configurationdialog.ui
