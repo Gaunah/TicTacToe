@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>application-exit.svg</file>
+        <file>game-new.svg</file>
+    </qresource>
+</RCC>
