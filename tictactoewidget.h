@@ -31,7 +31,7 @@ public slots:
     void handleButtonClick(int index);
 
 public:
-    TicTacToeWidget(QWidget *parent = 0);
+    explicit TicTacToeWidget(QWidget *parent = 0);
     ~TicTacToeWidget();
     /*!
      * \brief initNewGame clears the board
