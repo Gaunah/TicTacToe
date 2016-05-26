@@ -1,6 +1,8 @@
 #include "configurationdialog.h"
 #include "ui_configurationdialog.h"
 
+#include <QPushButton>
+
 void ConfigurationDialog::updateOKButtonState()
 {
     QPushButton *okButton = ui->buttonBox->button(QDialogButtonBox::Ok);

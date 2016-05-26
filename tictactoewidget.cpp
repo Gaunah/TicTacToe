@@ -20,7 +20,6 @@ void TicTacToeWidget::handleButtonClick(int index)
         return; //switch players
     } else {
         emit gameOver(winner);
-        qDebug() << winner;
     }
 }
 
@@ -42,6 +41,19 @@ void TicTacToeWidget::initNewGame()
     for (int i = 0; i < 9; ++i) {
         board.at(i)->setText(" ");
     }
+    setCurrentPlayer(Player1);
+}
+
+Player TicTacToeWidget::currentPlayer() const
+{
+    return m_currentPlayer;
+}
+
+void TicTacToeWidget::setCurrentPlayer(const Player &currentPlayer)
+{
+    if (m_currentPlayer == currentPlayer) return; //not changed
+    m_currentPlayer = currentPlayer;
+    emit currentPlayerChanged(currentPlayer);
 }
 
 void TicTacToeWidget::setupBoard()
@@ -66,30 +78,31 @@ void TicTacToeWidget::setupBoard()
 
 Player TicTacToeWidget::checkWinCondition(int row, int col)
 {
-    QString symbol = currentPlayer() == Player1 ? "X" : "O";
+    Player player = currentPlayer();
+    QString symbol = player == Player1 ? "X" : "O";
     bool win = true;
     for (int i = 0; i < 3; ++i) {
         win = win && board.at(i + row * 3)->text() == symbol; //horizontal
     }
-    if (win) return currentPlayer();
+    if (win) return player;
 
     win = true;
     for (int i = 0; i < 9; i += 3) {
         win = win && board.at(i + col)->text() == symbol; //vertical
     }
-    if (win) return currentPlayer();
+    if (win) return player;
 
     win = true;
     for (int i = 0; i < 9; i += 4) {
         win = win && board.at(i)->text() == symbol; //diagonal 0 4 8
     }
-    if (win) return currentPlayer();
+    if (win) return player;
 
     win = true;
     for (int i = 2; i < 7; i += 2) {
         win = win && board.at(i)->text() == symbol; //diagonal 2 4 6
     }
-    if (win) return currentPlayer();
+    if (win) return player;
 
     bool openSpots = false;
     for (int i = 0; i < 9; ++i) {

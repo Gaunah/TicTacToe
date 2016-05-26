@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>572</width>
-    <height>411</height>
+    <width>287</width>
+    <height>145</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,7 +23,14 @@
      </widget>
     </item>
     <item>
-     <widget class="TicTacToeWidget" name="gameBoard" native="true"/>
+     <widget class="TicTacToeWidget" name="gameBoard" native="true">
+      <property name="baseSize">
+       <size>
+        <width>0</width>
+        <height>600</height>
+       </size>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="QLabel" name="player2">
@@ -39,7 +46,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>572</width>
+     <width>287</width>
      <height>27</height>
     </rect>
    </property>
@@ -53,7 +60,6 @@
    </widget>
    <addaction name="menu_File"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="toolBar">
    <property name="windowTitle">
     <string>toolBar</string>

@@ -2,7 +2,6 @@
 #define CONFIGURATIONDIALOG_H
 
 #include <QDialog>
-#include <QPushButton>
 
 namespace Ui {
 class ConfigurationDialog;

@@ -33,22 +33,13 @@ public slots:
 public:
     explicit TicTacToeWidget(QWidget *parent = 0);
     ~TicTacToeWidget();
+
     /*!
      * \brief initNewGame clears the board
      */
     void initNewGame();
-
-    Player currentPlayer() const
-    {
-        return m_currentPlayer;
-    }
-
-    void setCurrentPlayer(const Player &currentPlayer)
-    {
-        if (m_currentPlayer == currentPlayer) return; //not changed
-        m_currentPlayer = currentPlayer;
-        emit currentPlayerChanged(currentPlayer);
-    }
+    Player currentPlayer() const;
+    void setCurrentPlayer(const Player &currentPlayer);
 
 private:
     Player m_currentPlayer;
